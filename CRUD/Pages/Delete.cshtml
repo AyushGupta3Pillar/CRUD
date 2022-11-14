@@ -1,0 +1,19 @@
+﻿@page "{id:int}"
+@model CRUD.Pages.DeleteModel
+@using CRUD.Models
+@{
+	ViewData["Title"] = "Delete";
+}
+
+
+<body style="background-color:#FFFBE1;">
+<h1>Delete Employee</h1>
+<hr />
+
+<h4> Are you sure you want to Delete Employee Id <b>@Html.DisplayFor(model =>model.DisplayRecord.Empid)</b> </h4>
+<form method="post">
+	<input type="submit" value="Delete" />
+	<a asp-page="Index">Back to List</a>
+</form>
+
+</body>

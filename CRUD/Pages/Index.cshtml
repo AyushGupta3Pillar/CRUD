@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<body style="background-color:#FFFBE1;">
+<div class="text-center">
+    <h1 class="display-4">CRUD Opertaion </h1>
+    <h2>Create , Read , Update , Delete</h2>
+    <hr />
+    <form method="post">
+        <div class="form-group">
+            Name <input type="text" name="Empname" placeholder="Enter Employee Name" />
+            Email <input type="email" name="Email"placeholder="Enter the email"/>
+            Age <input type="text" name="Age" placeholder="Enter the Age.."/>
+            Salary <input type="text" name="Salary" placeholder="Enter the salary"/>
+            <input type="submit" value="Add new Employee" class="btn btn-primary" />
+        </div>
+    
+    <table class="table table-striped">
+        <tr>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model.Getrecords)
+        {
+            <tr>
+                <td>@item.Empid</td>
+                <td>@item.Empname</td>
+                <td>@item.Email</td>
+                <td>@item.Age</td>
+                <td>@item.Salary</td>
+                <td>
+                    <button style="background-color:white;"><a asp-page="Edit" asp-route-Id="@item.Empid" style="text-decoration:none">Edit</a></button>
+                    <button style="background-color:white;"><a asp-page="Details" asp-route-Id="@item.Empid" style="text-decoration:none">Details</a></button>
+                    <button style="background-color:white;"><a asp-page="Delete" asp-route-Id="@item.Empid" style="text-decoration:none">Delete</a></button>
+                </td>
+            </tr>
+            
+        }
+
+    </table>
+    </form>
+</div>
+</body>
+           
